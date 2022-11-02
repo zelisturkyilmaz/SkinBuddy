@@ -46,15 +46,3 @@ Mobile View:\
 ![Mobile View](static/Skinbuddy-responsive-2.png)
 
 
-
-### How to Run the Application:
-
-1. Clone the project: ```git clone https://github.com/zelisturkyilmaz/SkinBuddy```
-
-2. Go to the created folder: ```cd SkinBuddy```
-
-3. Install the requirements: ```pip install -r requirements.txt```
-
-4. Run the application: ```python app.py```
-
-5. Open [http://localhost:5000/](http://localhost:5000/)  in your browser.
