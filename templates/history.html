@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Product History
+{% endblock %}
+
+{% block main %}
+
+
+    <h3 class="py-3">Product History</h3>
+    <br>
+
+    <!--
+    <div class="d-flex flex-row-reverse py-2 px-2">
+        <div>
+            <form action="/historySearch" method="POST" class="d-flex flex-row">
+                    <input type="text" class="form-control me-2" list="historySearch" autocomplete="off" id="historySearchInput" name="historySearchInput" placeholder="Search...">
+                    <button class="btn btn-morning-add" type="submit">Add</button>
+            </form>
+            <datalist id="historySearch"></datalist>
+        </div>
+    </div>
+    -->
+
+    <div class="py-2 px-2">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Action</th>
+            <th scope="col">Routine</th>
+            <th scope="col">Time</th>
+            <th scope="col">Product Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+          <tr>
+            <td><b>{{ product["brand"] }}</b> - <b>{{ product["name"] }}</b></td>
+            <td>{{ product["status"] }}</td>
+            <td><b>{{ product["routine"] }} routine </b></td>
+            <td>at {{ product["time"] }}</td>
+            <td>
+                {% for i in range(0, product["rating"]) %}
+                <i class="bi bi-star-fill productHistoryRanking"></i>
+                {% endfor%}
+                {% for j in range(0, 5 - product["rating"] ) %}
+                <i class="bi bi-star productHistoryRanking"></i>
+                {% endfor%}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+{% endblock %}

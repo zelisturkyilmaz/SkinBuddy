@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    SkinBuddy
+{% endblock %}
+
+{% block main %}
+
+    <!-- Hero Image-->
+
+    <div class="container-fluid col-xxl-8 px-4 py-5 h-100">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5" >
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="static/bg-image-hero-side.png" class="mx-auto d-none d-lg-block img-fluid " alt="Image Hero"
+                    width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Track Your Routine,<br>Get The Best Out Of Products</h1>
+                <p class="lead">Create and customize your morning and night routine, monitor your progress, and keep track
+                    of your products&rsquo; history</p>
+
+                <a class="btn btn-outline-secondary btn-hero-cta" href="/register" role="button">Create Your Routine Now</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Features -->
+    <div class="container col-xxl-8 px-4 py-5" id="features-section">
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div
+                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <i class="bi bi-calendar-check" style="font-size: 3rem;"></i>
+                </div>
+                <h2>Feature 1</h2>
+                <p lang="zxx">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum optio amet in voluptas,
+                    provident
+                    repellat ut natus illo ipsa reprehenderit perferendis iure. Nesciunt repellat nam consequatur dolorem
+                    eaque,
+                    earum veniam.</p>
+            </div>
+            <div class="feature col">
+                <div
+                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <i class="bi bi-search-heart" style="font-size: 3rem;"></i>
+                </div>
+                <h2>Feature 2</h2>
+                <p lang="zxx">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quisquam magnam voluptatibus
+                    aut vitae
+                    quae
+                    debitis delectus earum molestias. Necessitatibus odio vero, ipsum ut magnam placeat? Labore alias
+                    tempora
+                    repellat.</p>
+            </div>
+            <div class="feature col">
+                <div
+                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <i class="bi bi-share" style="font-size: 3rem;"></i>
+                </div>
+                <h2>Feature 3</h2>
+                <p lang="zxx">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione aliquam quibusdam nam
+                    dolorum ipsa
+                    culpa
+                    vero dolor, saepe eligendi, alias quos tenetur minima, odit laborum inventore cupiditate porro.
+                    Voluptates,
+                    consectetur?
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Testimonials -->
+    <!-- TODO: Look for a cleaner way -->
+    <div>
+        <div id="carouselExampleControls" class="carousel slide carousel-dark text-center py-5" data-mdb-ride="carousel">
+            <div class="carousel-inner py-4">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Anna Deynah</h5>
+                                <p>UX Designer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">John Doe</h5>
+                                <p>Web Developer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                                    suscipit laboriosam, nisi ut aliquid commodi.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Maria Kate</h5>
+                                <p>Photographer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                    praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">John Doe</h5>
+                                <p>UX Designer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Alex Rey</h5>
+                                <p>Web Developer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                                    suscipit laboriosam, nisi ut aliquid commodi.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Maria Kate</h5>
+                                <p>Photographer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                    praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Maria Kate</h5>
+                                <p>Photographer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">John Doe</h5>
+                                <p>Web Developer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                                    suscipit laboriosam, nisi ut aliquid commodi.
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <img class="rounded-circle shadow-1-strong mb-4" src="static/card-jane-doe.png" alt="avatar"
+                                    style="width: 150px;" />
+                                <h5 class="mb-3">Anna Deynah</h5>
+                                <p>UX Designer</p>
+                                <p class="text-muted" lang="zxx">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                    praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+{% endblock %}

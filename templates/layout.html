@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+        <!-- Bootstrap 5.0 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+        <!-- Styles CSS -->
+        <link rel="stylesheet" type="text/css" href="static/styles.css">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="static/logo-brand-white.png" alt="Logo Brand White" class="me-auto" height="60">
+                </a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    {% if session["user_id"] %}
+                        <ul class="navbar-nav me-auto mt-2">
+                            <li class="nav-item"><a class="nav-link btn btn-outline-secondary me-md-2 px-4 btn-navbar" href="/routine">Routine</a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-secondary me-md-2 px-4 btn-navbar" href="/history">Product History</a></li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link btn btn-outline-secondary px-4 btn-navbar" href="/logout">Log Out</a></li>
+                        </ul>
+                    {% else %}
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link btn btn-outline-secondary me-md-2 px-4 btn-navbar" href="/register">Register</a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-secondary px-4 btn-navbar" href="/login">Log In</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <!-- Flashed Messages-->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        {% if messages %}
+        <p class="alert alert-info alert-dismissible fade show flashes {{ category }} text-center" role="alert">
+          {% for category, message in messages %}
+          <strong>Error:</strong> {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+          {% endfor %}
+      </p>
+      {% endif %}
+      {% endwith %}
+
+        <!-- Main Content-->
+        <main class="text-center h-100">
+            {% block main %}{% endblock %}
+        </main>
+
+        <!-- Footer-->
+        <!-- TODO: Fix the content positions -->
+        <footer class="mt-auto pt-2">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-lg-3">
+                  <a class="me-0" href="index.html">
+                    <img class="light-mode-item h-20px me-auto" src="static/logo-brand-white.png" alt="logo"
+                      height="60">
+                  </a>
+                </div>
+                <div class="col-lg-6">
+                </div>
+                <div class="col-lg-3 py-2">
+                  <h5 class="mb-1 mb-md-2"></h5>
+                  <p class="mb-0"><span class="h6 fw-light ms-2"></span></p>
+                  <div class="row mt-2 py-sm-4">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                      <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                          class="bi bi-google-play" viewBox="0 0 16 16">
+                          <path
+                            d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
+                        </svg></a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-6 px-8">
+                      <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                          class="bi bi-apple" viewBox="0 0 16 16">
+                          <path
+                            d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
+                          <path
+                            d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
+                        </svg> </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="py-sm-2">
+                <div class="container px-0">
+                  <div class="d-lg-flex justify-content-center align-items-center py-3 text-center">
+                    <div class="text-primary-hover"> Copyrights <a href="#" class="text-white-50 copyright-text">©2022
+                        SkinBuddy</a>. All rights reserved. </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+
+
+        <!-- Bootstap 5.0 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+        <!-- Routine Page Script -->
+        <script src="/static/script.js"></script>
+    </body>
+
+</html>

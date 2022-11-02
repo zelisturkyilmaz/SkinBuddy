@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Routine
+{% endblock %}
+
+{% block main %}
+
+{% if error %}
+    <p class="alert alert-info alert-dismissible fade show" role="alert"><strong>Error:</strong> {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+    </p>
+    {% endif %}
+
+        <div class="container h-100 py-md-5">
+            <div class="my-3">
+                <p class="h1 text-center mt-3 mb-4 pb-3 text-morning-title">
+                    <i class="bi bi-sun-fill"></i>
+                    Morning Routine
+                </p>
+                <div>
+                    <form action="/addMorning" method="POST" class="d-flex flex-row">
+                            <input type="text" class="form-control me-2" list="morningSearch" autocomplete="off" id="productListInput1" name="productListInput1" placeholder="Add a new product...">
+                            <button class="btn btn-morning-add" type="submit">Add</button>
+                    </form>
+                    <datalist id="morningSearch"></datalist>
+                </div>
+            </div>
+
+            <ul id="morningList" class="list-unstyled">
+                {% for product in mhistory %}
+                <li class="morning-list-item d-flex justify-content-between flex-row align-items-center">
+                    <div>
+                        {{ product["fullname"] }}
+                    </div>
+                    <div class="d-flex justify-content-between flex-row align-items-center">
+                        <button class="bi bi-info-circle listItem" data-bs-toggle="collapse"
+                            role="button" data-bs-target="#collapseMorning{{ product["p_id"] }}" aria-expanded="false" aria-controls="collapseMorning{{ product["p_id"] }}">
+                        </button>
+                        <form action="/removeMorning" method="POST">
+                            <input name="id" type="hidden" value="{{ product["p_id"] }}">
+                            <input name="ratingValue" type="hidden" value="{{ product["rating"] }}">
+                            <button class="bi bi-trash3-fill listItem"></button>
+                        </form>
+                    </div>
+                </li>
+                <div class="collapse multi-collapse" id="collapseMorning{{ product["p_id"] }}">
+                    <div class="card card-body card-body-ing">
+                        <p><b>{{ product["brand"] }} - {{ product["name"]}}</b></p>
+                        <p>{{ product["ingredients"] }}</p>
+                        <p>
+
+                            {% if product["rating"] == 0 %}
+
+                            <form action="/rateMorning" method="POST" class="d-flex justify-content-center align-items-start">
+                                <p>Do you like this product?&nbsp;&nbsp;&nbsp;</p>
+                                <input name="id" type="hidden" value="{{ product["p_id"] }}">
+                                <button class="bi bi-star" name="rating" value="1" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="2" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="3" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="4" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="5" type="submit"></button>
+                            </form>
+                            <!-- If there is already rating-->
+                            {% else %}
+                                {% for i in range(0, product["rating"]) %}
+                                <button class="bi bi-star-fill"></button>
+                                {% endfor%}
+                                {% for j in range(0, 5 - product["rating"] ) %}
+                                <button class="bi bi-star"></button>
+                                {% endfor%}
+                            {% endif %}
+                        </p>
+                    </div>
+                  </div>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <div class="container h-100 py-md-5">
+            <div class="my-3">
+                <p class="h1 text-center mt-3 mb-4 pb-3 text-morning-title">
+                    <i class="bi bi-moon-stars-fill"></i>
+                    Night Routine
+                </p>
+                <div>
+                    <form action="/addNight" method="POST" class="d-flex flex-row">
+                            <input type="text" class="form-control me-2" list="nightSearch" autocomplete="off" id="productListInput2" name="productListInput2" placeholder="Add a new product...">
+                            <button class="btn btn-morning-add" type="submit">Add</button>
+                    </form>
+                    <datalist id="nightSearch"></datalist>
+                </div>
+            </div>
+
+            <ul id="nightList" class="list-unstyled">
+                {% for product in nhistory %}
+
+                <li class="night-list-item d-flex justify-content-between flex-row align-items-center">
+                    <div>
+                        {{ product["fullname"] }}
+                    </div>
+                    <div class="d-flex justify-content-between flex-row align-items-center">
+
+                        <button class="bi bi-info-circle listItem" data-bs-toggle="collapse" role="button"
+                            data-bs-target="#collapseNight{{ product["p_id"] }}" aria-expanded="false"
+                            aria-controls="collapseNight{{ product["p_id"] }}">
+                        </button>
+
+                        <form action="/removeNight" method="POST">
+                            <input name="id" type="hidden" value="{{ product["p_id"] }}">
+                            <input name="ratingValue" type="hidden" value="{{ product["rating"] }}">
+                            <button class="bi bi-trash3-fill listItem"></button>
+                        </form>
+                    </div>
+                </li>
+                <div class="collapse multi-collapse" id="collapseNight{{ product["p_id"] }}">
+                    <div class="card card-body card-body-ing">
+                        <p><b>{{ product["brand"] }} - {{ product["name"] }}</b></p>
+                        <p>{{ product["ingredients"] }}</p>
+                        <p>
+                            {% if product["rating"] == 0 %}
+                            <form action="/rateNight" method="POST" class="d-flex justify-content-center align-items-start">
+                                <p>Do you like this product?&nbsp;&nbsp;&nbsp;</p>
+                                <input name="id" type="hidden" value="{{ product["p_id"] }}">
+                                <button class="bi bi-star" name="rating" value="1" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="2" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="3" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="4" type="submit"></button>
+                                <button class="bi bi-star" name="rating" value="5" type="submit"></button>
+                            </form>
+                            <!--If there is already rating-->
+                            {% else %}
+                                {% for i in range(0, product["rating"]) %}
+                                <button class="bi bi-star-fill"></button>
+                                {% endfor%}
+                                {% for j in range(0, 5 - product["rating"] ) %}
+                                <button class="bi bi-star"></button>
+                                {% endfor%}
+                            {% endif %}
+                        </p>
+                    </div>
+                  </div>
+                {% endfor %}
+            </ul>
+        </div>
+
+{% endblock %}

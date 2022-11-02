@@ -1,0 +1,160 @@
+
+
+footer {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.507);
+
+}
+
+body {
+    background: hsla(0, 0%, 97%, 1);
+
+    background: linear-gradient(-90deg, hsla(0, 0%, 97%, 1) 0%, hsla(211, 58%, 79%, 1) 100%);
+
+    background: -moz-linear-gradient(-90deg, hsla(0, 0%, 97%, 1) 0%, hsla(211, 58%, 79%, 1) 100%);
+
+    background: -webkit-linear-gradient(-90deg, hsla(0, 0%, 97%, 1) 0%, hsla(211, 58%, 79%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#F7F7F7", endColorstr="#ABC9E9", GradientType=1);
+
+
+}
+
+.btn-hero-cta {
+    background-color: #A15E49;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.btn-hero-cta:hover {
+    opacity: 1;
+    background-color: #A15E49;
+    color: white;
+}
+
+.btn-navbar {
+    background-color: #A15E49;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.btn-navbar:hover {
+    opacity: 1;
+    background-color: #A15E49;
+    color: white;
+}
+
+.bi-google-play,
+.bi-apple {
+    color: white;
+}
+
+.btn-register {
+    background-color: #A15E49;
+    color: white;
+    text-align: center;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    opacity: 1;
+    color: white;
+}
+
+.text-morning-title {
+    text-decoration: none;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.bi-calendar-date,
+.bi-trash3-fill,
+.bi-pencil-square {
+    color: black;
+}
+
+.morning-list-item {
+    cursor: pointer;
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 15px;
+}
+
+.morning-list-item:hover {
+    background: #93B7BE;
+    color: white;
+}
+
+.listItem {
+    border: none;
+    border-radius: 15px;
+    background: transparent;
+}
+
+
+.listItem:hover {
+    color: red;
+    background: #93B7BE
+}
+
+.night-list-item {
+    cursor: pointer;
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 15px;
+}
+
+.night-list-item:hover {
+    background: #93B7BE;
+    color: white;
+}
+
+.btn-morning-add {
+    background-color: #464F51;
+    border: none;
+    color: white;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-morning-add:hover {
+    background-color: #A15E49
+}
+
+.card-body-ing {
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    border-radius: 15px;
+    background: #93B7BE;
+    color: white;
+    opacity: 0.7;
+}
+
+.bi-star, .bi-star-fill {
+    border: none;
+    background: transparent;
+    color: white;
+}
+
+
+.productHistoryRanking {
+    border: none;
+    background: transparent;
+    color: black;
+}
