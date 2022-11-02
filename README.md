@@ -1,6 +1,4 @@
 # SkinBuddy
-### Video Demo:
-[Watch the Demo Here](https://youtu.be/A3ujDORDE5U)
 
 ### Build:
 
