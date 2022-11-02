@@ -419,3 +419,6 @@ def rateNight():
         return redirect("/routine")
 
     return render_template("routine.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
